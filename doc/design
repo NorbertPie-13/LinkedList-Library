@@ -37,3 +37,7 @@ Functions
 sizeoflist(structure * mylist)
 	Take in a structure pointer (As a linklist pointer) and return the size of the structure  as an integer
 	
+push(struct linklist * my list, char * word)
+	Push will make a node and set the nodes word to word. The linklist (NODE NOT YET INSERTED) will assign head nodes->next pointer
+	and assign head to node.
+	
