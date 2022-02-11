@@ -20,5 +20,5 @@ int main(void)
         peek(mylist);
         node * temp2 = dequeue(mylist);
         peek(mylist);
-
+        printf("Size of list: %d\n", sizeoflist(mylist));
 }
