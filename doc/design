@@ -29,3 +29,11 @@ typedef struct Linklist {
 
 
 
+
+-----------------------------------------
+Functions
+-----------------------------------------
+
+sizeoflist(structure * mylist)
+	Take in a structure pointer (As a linklist pointer) and return the size of the structure  as an integer
+	
