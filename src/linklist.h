@@ -35,5 +35,10 @@ node * dequeue(linklist * mylist);
 
 /* Return size of my list*/
 int sizeoflist(linklist * mylist);
+
+/* insert an item to the head of the queue */
 void push (linklist * mylist, char * word);
+
+linklist * sort(linklist * mylist);
+
 #endif

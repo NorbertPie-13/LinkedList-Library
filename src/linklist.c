@@ -135,3 +135,14 @@ void push (linklist * mylist, char * word){
         mylist->count++;
 }
 
+
+linklist * sort(linklist * mylist){
+        if (NULL == mylist){
+                fprintf(stderr, "Cannot sort, pointer evaluates to NULL\n");
+                return NULL;
+        }
+
+        if (mylist->head->word[0])
+
+
+}
