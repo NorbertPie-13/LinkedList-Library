@@ -105,4 +105,8 @@ void peek(linklist * mylist){
 node * dequeue(linklist * mylist){
         return pop(mylist);
 }
+/* Return size of my list*/
+int sizeoflist(linklist * mylist){
+        return mylist->count;
+}
 
