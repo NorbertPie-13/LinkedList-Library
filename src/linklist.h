@@ -29,7 +29,10 @@ node * pop(linklist * my_list);
 
 /* Peek is a void function that allows you to see what the head holds,
 and if there is a next value then it will show that value*/
-void peek(linklist * mylist);
-
+void peek(linklist ** mylist);
+/*Dequeue behaves exactly like pop*/
 node * dequeue(linklist * mylist);
+
+/* Return size of my list*/
+int sizeoflist(linklist * mylist);
 #endif
