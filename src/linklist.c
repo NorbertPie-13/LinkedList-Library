@@ -14,18 +14,26 @@ linklist *create_links(void)
 	return linkedlist;
 }
 
-/* Create an individual node that assigns the word passed into it, as the word in the node.
-The node will be inserted at the tail of all the structures.*/
-linklist *enqueue(linklist * mylist, char *word)
-{
-	node *mynode = calloc(1, sizeof(*mynode));
+
+static node * create_node(char * word){
+        node *mynode = calloc(1, sizeof(*mynode));
         // Check the pointer
-	if (mynode == NULL || word == NULL) {
-		fprintf(stderr, "Could not create node containing %s", word);
+	if (mynode == NULL) {
+		fprintf(stderr, "Could not create node containing");
 		return NULL;
 	}
         // Assign the node's word to word
 	mynode->word = word;
+        return mynode;
+}
+/* Create an individual node that assigns the word passed into it, as the word in the node.
+The node will be inserted at the tail of all the structures.*/
+linklist *enqueue(linklist * mylist, char *word){
+        if (NULL == mylist){
+                fprintf(stderr, "Invalid pointer to link list in enqueue\n");
+                return NULL;
+        } 
+	node * mynode = create_node(word);
         // If there is nothing in the queue, then head will be empty
 	if (mylist->head == NULL) {
                 // assign head to my node
@@ -92,9 +100,15 @@ void peek(linklist * mylist){
         // check the pointer
         if (NULL == mylist){
                 printf("Cannot peek, nothing in list\n");
+                return;
         }
         // print the current word
-        printf("Current Head: %s\n", mylist->head->word);
+        if (NULL != mylist->head){
+                printf("Current Head: %s\n", mylist->head->word);
+        }else{
+                return;
+        }
+        
         // if there is a next, print that too!
         if (NULL != mylist->head->next){
                 printf("Next Node: %s\n", mylist->head->next->word);
@@ -108,5 +122,16 @@ node * dequeue(linklist * mylist){
 /* Return size of my list*/
 int sizeoflist(linklist * mylist){
         return mylist->count;
+}
+
+void push (linklist * mylist, char * word){
+        if (NULL == mylist || NULL == word){
+                fprintf(stderr, "Cannnot push, invalid pointer provided\n");
+                return;
+        }
+        node * node_inserted = create_node(word);
+        node_inserted->next = mylist->head;
+        mylist->head = node_inserted;
+        mylist->count++;
 }
 
