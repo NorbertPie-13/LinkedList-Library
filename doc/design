@@ -41,3 +41,7 @@ push(struct linklist * my list, char * word)
 	Push will make a node and set the nodes word to word. The linklist (NODE NOT YET INSERTED) will assign head nodes->next pointer
 	and assign head to node.
 	
+	
+sort(struct linklist * mylist)
+	sort will sort a linklist structure alphabetically.  When doing so it will manipulate the current link list to make it alphabetized
+	and return the linklist
