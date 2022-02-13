@@ -16,6 +16,10 @@ linklist *create_links(void)
 
 
 static node * create_node(char * word){
+        if (NULL == word){
+                fprintf(stderr, "Cannot create node with an invalid pointer\n");
+                return NULL;
+        }
         node *mynode = calloc(1, sizeof(*mynode));
         // Check the pointer
 	if (mynode == NULL) {
@@ -135,3 +139,11 @@ void push (linklist * mylist, char * word){
         mylist->count++;
 }
 
+void destroy_node(node* mynode){
+        if (NULL == mynode){
+                fprintf(stderr, "Cannot destroy NULL value\n");
+                return;
+        }
+        free(mynode->next);
+        free(mynode);
+}
