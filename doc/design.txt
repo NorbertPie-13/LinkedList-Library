@@ -1,0 +1,46 @@
+Author: Matt Norbert Pieczynski
+Date: Feb 10, 2022
+Topic: Linklist
+Language: C
+
+
+
++=================================+
++            SUMMARY              +
++=================================+
+
+Make a singly linked list library that can make a node holding a character array (a word)
+and effectively manage and delete the information that is handed to it. The list will have a
+queue like behavior and stack like behavior.
+
++=================================+
++            DESIGN               +
++=================================+
+
+|--------------|
+|  Structures  |        |
+|--------------|
+
+typedef struct Linklist {
+	node *tail;
+	node *head;
+	int count;
+} linklist;
+
+
+
+
+-----------------------------------------
+Functions
+-----------------------------------------
+
+sizeoflist(structure * mylist)
+	Take in a structure pointer (As a linklist pointer) and return the size of the structure  as an integer
+	
+push(struct linklist * my list, char * word)
+	Push will make a node and set the nodes word to word. The linklist (NODE NOT YET INSERTED) will assign head nodes->next pointer
+	and assign head to node.
+	
+destroy(struct linklist * mylist)
+	destroy the linklist. Must destroy node by node, the destroy the wrapper. While the head is not equal to null, set temp to head and assign head->next to head. free temp. return void.
+	
