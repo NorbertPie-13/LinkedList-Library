@@ -15,14 +15,17 @@ int main(void)
 	
         print_list(mylist);
         node * mynode = pop(mylist);
+        free(mynode);
         printf("Node Popped: %s\n\n", mynode->word);
         print_list(mylist);
         peek(mylist);
         node * temp2 = dequeue(mylist);
+        free(temp2);
         printf("Node Dequeued: %s\n\n", temp2->word);
         peek(mylist);
         printf("Size of list: %d\n", sizeoflist(mylist));
         push(mylist, "zero");
         print_list(mylist);
         printf("The Tail: %s", mylist->tail->word);
+        destroy_list(mylist);
 }
