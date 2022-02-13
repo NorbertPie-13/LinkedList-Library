@@ -128,22 +128,48 @@ int sizeoflist(linklist * mylist){
         return mylist->count;
 }
 
+/*create a node and insert at the head of the queue. Returns void*/
 void push (linklist * mylist, char * word){
         if (NULL == mylist || NULL == word){
                 fprintf(stderr, "Cannnot push, invalid pointer provided\n");
                 return;
         }
+        // make a node data structure
         node * node_inserted = create_node(word);
+        // set the next of the node being inserted to the current head
         node_inserted->next = mylist->head;
+        // set the head to the node inserted
         mylist->head = node_inserted;
+        // increase the count.
         mylist->count++;
 }
 
-void destroy_node(node* mynode){
+static void destroy_node(node* mynode){
         if (NULL == mynode){
                 fprintf(stderr, "Cannot destroy NULL value\n");
                 return;
         }
-        free(mynode->next);
+        // if next exists, then free next
+        if(mynode->next){
+                free(mynode->next);
+                mynode->next = NULL;
+        }
+        // then free myself.
         free(mynode);
+        mynode = NULL;
+}
+
+/* Frees all nodes and then the wrapper for the queue*/
+void destroy_list(linklist * mylist){
+        if (NULL == mylist){
+                fprintf(stderr, "Cannot destroy linklist.\n");
+                return;
+        }
+        // free all my nodes in the queue
+        destroy_node(mylist->head);
+
+        // then free the wrapper
+        free(mylist);
+        mylist = NULL;
+
 }
