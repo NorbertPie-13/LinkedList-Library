@@ -150,12 +150,14 @@ static void destroy_node(node* mynode){
                 return;
         }
         // if next exists, then free next
-        if(mynode->next){
-                free(mynode->next);
-                mynode->next = NULL;
+        node * temp = mynode;
+        while(mynode){
+                temp = mynode->next;
+                free(mynode);
+                mynode = temp;
         }
-        // then free myself.
-        free(mynode);
+        // set pointers to NULL
+        temp = NULL;
         mynode = NULL;
 }
 
