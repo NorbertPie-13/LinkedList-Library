@@ -45,7 +45,7 @@ void * dequeue(linklist * mylist);
 /* Return size of my list*/
 int sizeoflist(linklist * mylist);
 /*create a node and insert at the head of the queue. Returns void*/
-void push (linklist * mylist, char * word);
+void push (linklist * mylist, void * word);
 /* Frees all nodes and then the wrapper for the queue*/
 void destroy_list(linklist * mylist);
 void purge_list (linklist * mylist);
