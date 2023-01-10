@@ -3,7 +3,6 @@
 
 
 typedef void (*del_f)(void *data);
-typedef int (*search_f)(void * data);
 
 typedef struct linknode {
 	void *data;
@@ -30,8 +29,6 @@ int is_empty(linklist * list);
 The node will be inserted at the tail of all the structures.*/
 linklist *enqueue(linklist * mylist, void * data);
 
-// Print list prints all objects that are currently in the list
-void print_list(linklist * mylist);
 
 /* pop returns the first object that is at the head and moves the head forward*/
 void * pop(linklist * my_list);
@@ -53,5 +50,5 @@ void push (linklist * mylist, char * word);
 void destroy_list(linklist * mylist);
 void purge_list (linklist * mylist);
 
-void* search(linklist * queue, search_f search (void *));
+
 #endif

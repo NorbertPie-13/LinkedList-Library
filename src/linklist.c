@@ -96,22 +96,6 @@ void *pop(linklist * my_list)
 
 }
 
-void print_list(linklist * mylist)
-{				
-	if (!mylist) //Check to see that mylist exists
-    {
-		return;
-	}
-	
-	node *temp = mylist->head; // create a temporary node structure of the head
-	
-	while (temp) // while a node structure exists
-    {
-		// print what temp is and assign to next
-		temp = temp->next;
-	}
-	printf("\n");
-}
 
 /* Peek is a void function that allows you to see what the head holds,
 and if there is a next value then it will show that value*/
@@ -177,37 +161,6 @@ void destroy_list(linklist * mylist)
 		free(temp); // then free that node.
 	}
 	free(mylist); // then free the wrapper
-}
-
-/* Search the link list in O(N) time. Must provide a search function that has a
- void pointer as a parameter and returns an integer. If search returns a 1, the
-item will be returned, else, move forwards to next node. If no nodes match or 
-there is an error, NULL is returned. */
-void *search(linklist * queue, search_f search (void *))
-{	
-	if (NULL == queue || NULL == search)  // check pointers and check the search function
-    {
-		fprintf(stderr, "Cannot search due to invalid pointer.\n");
-		return NULL;
-	}
-	
-	if (queue->head == NULL)  // if the head is == NULL return false, theres nothing.
-    {
-		return NULL;
-	}
-	
-	
-	node *head = queue->head; // set head to the queue head
-	while (head != NULL)  // While the head is not null
-    {  
-		void * head_data = head->data; // typecast the data in the Node to a void pointer
-		if (search(head_data) == 1) // if the search returns 1, it is successful
-		{
-			return head_data; // return that item
-		}
-		head = head->next; // otherwise move forward a node.
-	}
-	return NULL; // If there is no match, then return NULL
 }
 
 /* NOP Function, does nothing and returns nothing */
